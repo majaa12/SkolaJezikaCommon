@@ -1,0 +1,14 @@
+package rs.ac.bg.fon.nprog.common.operation;
+
+import java.io.Serializable;
+
+public enum Operation implements Serializable {
+
+	LOGIN, ZAPAMTI_POLAZNIKA, PRETRAZI_POLAZNIKE,
+
+	VRATI_JEZIKE, ZAPAMTI_PROFESORA, PRETRAZI_PROFESORE,
+
+	VRATI_GRADOVE, VRATI_ADRESE, SACUVAJ_KURS, PRETRAZI_KURSEVE,
+
+	IZMENI_KURS, ZAPAMTI_UPIS, PRETRAZI_UPISE, OBRISI_UPIS, LOGOUT;
+}
