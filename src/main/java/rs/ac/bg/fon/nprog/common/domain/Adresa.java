@@ -27,6 +27,9 @@ public class Adresa implements GenericEntity {
 	}
 
 	public void setGrad(Grad grad) {
+		if (grad == null) {
+			throw new NullPointerException("Grad ne sme biti null vrednost!");
+		}		
 		this.grad = grad;
 	}
 
@@ -43,6 +46,12 @@ public class Adresa implements GenericEntity {
 	}
 
 	public void setUlica(String ulica) {
+		if (ulica == null) {
+			throw new NullPointerException("Ulica ne sme biti null vrednost!");
+		}
+		if (ulica.isEmpty()) {
+			throw new RuntimeException("Ulica ne sme biti prazan string!");
+		}		
 		this.ulica = ulica;
 	}
 
@@ -51,6 +60,9 @@ public class Adresa implements GenericEntity {
 	}
 
 	public void setBroj(int broj) {
+		if(broj <= 0) {
+			throw new RuntimeException("Broj ne sme biti negativan ili 0!");
+		}
 		this.broj = broj;
 	}
 

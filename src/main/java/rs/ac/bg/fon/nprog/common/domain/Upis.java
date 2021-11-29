@@ -30,6 +30,9 @@ public class Upis implements GenericEntity {
 	}
 
 	public void setTerminKursa(TerminKursa terminKursa) {
+		if (terminKursa == null) {
+			throw new NullPointerException("Termin kursa ne sme biti null vrednost!");
+		}
 		this.terminKursa = terminKursa;
 	}
 
@@ -38,6 +41,9 @@ public class Upis implements GenericEntity {
 	}
 
 	public void setDatumUpis(Date datumUpis) {
+		if (datumUpis == null) {
+			throw new NullPointerException("Datum upisa ne sme biti null vrednost!");
+		}
 		this.datumUpis = datumUpis;
 	}
 
@@ -46,6 +52,9 @@ public class Upis implements GenericEntity {
 	}
 
 	public void setPolaznik(Polaznik polaznik) {
+		if (polaznik == null) {
+			throw new NullPointerException("Polaznik ne sme biti null vrednost!");
+		}
 		this.polaznik = polaznik;
 	}
 
@@ -54,6 +63,9 @@ public class Upis implements GenericEntity {
 	}
 
 	public void setAdministrator(Administrator administrator) {
+		if (administrator == null) {
+			throw new NullPointerException("Administrator ne sme biti null vrednost!");
+		}
 		this.administrator = administrator;
 	}
 

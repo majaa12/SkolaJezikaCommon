@@ -34,6 +34,12 @@ public class Polaznik implements GenericEntity {
 	}
 
 	public void setAdresa(String adresa) {
+		if (adresa == null) {
+			throw new NullPointerException("Adresa polaznika ne sme biti null vrednost!");
+		}
+		if (adresa.isEmpty()) {
+			throw new RuntimeException("Adresa polaznika ne sme biti prazan string!");
+		}
 		this.adresa = adresa;
 	}
 
@@ -50,6 +56,12 @@ public class Polaznik implements GenericEntity {
 	}
 
 	public void setIme(String ime) {
+		if (ime == null) {
+			throw new NullPointerException("Ime polaznika ne sme biti null vrednost!");
+		}
+		if (ime.isEmpty()) {
+			throw new RuntimeException("Ime polaznika ne sme biti prazan string!");
+		}
 		this.ime = ime;
 	}
 
@@ -58,6 +70,12 @@ public class Polaznik implements GenericEntity {
 	}
 
 	public void setPrezime(String prezime) {
+		if (prezime == null) {
+			throw new NullPointerException("Prezime polaznika ne sme biti null vrednost!");
+		}
+		if (prezime.isEmpty()) {
+			throw new RuntimeException("Prezime polaznika ne sme biti prazan string!");
+		}
 		this.prezime = prezime;
 	}
 
@@ -66,6 +84,12 @@ public class Polaznik implements GenericEntity {
 	}
 
 	public void setJmbg(String jmbg) {
+		if (jmbg == null) {
+			throw new NullPointerException("JMBG polaznika ne sme biti null vrednost!");
+		}
+		if (!(jmbg.length() == 13)) {
+			throw new RuntimeException("JMBG polaznika mora imati 13 cifara!");
+		}
 		this.jmbg = jmbg;
 	}
 
@@ -74,6 +98,12 @@ public class Polaznik implements GenericEntity {
 	}
 
 	public void setTelefon(String telefon) {
+		if (telefon == null) {
+			throw new NullPointerException("Telefon polaznika ne sme biti null vrednost!");
+		}
+		if (telefon.isEmpty()) {
+			throw new RuntimeException("Telefon polaznika ne sme biti prazan string!");
+		}
 		this.telefon = telefon;
 	}
 
@@ -82,6 +112,15 @@ public class Polaznik implements GenericEntity {
 	}
 
 	public void setEmail(String email) {
+		if (email == null) {
+			throw new NullPointerException("Email polaznika ne sme biti null vrednost!");
+		}
+		if (email.isEmpty()) {
+			throw new RuntimeException("Email polaznika ne sme biti prazan string!");
+		}
+		if (!email.contains("@")) {
+			throw new RuntimeException("Email mora sadrzati @");
+		}
 		this.email = email;
 	}
 

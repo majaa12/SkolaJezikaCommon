@@ -31,6 +31,9 @@ public class Profesor implements GenericEntity {
 	}
 
 	public void setJezik(Jezik jezik) {
+		if (jezik == null) {
+			throw new NullPointerException("Jezik profesora ne sme biti null vrednost!");
+		}		
 		this.jezik = jezik;
 	}
 
@@ -47,6 +50,12 @@ public class Profesor implements GenericEntity {
 	}
 
 	public void setIme(String ime) {
+		if (ime == null) {
+			throw new NullPointerException("Ime profesora ne sme biti null vrednost!");
+		}
+		if (ime.isEmpty()) {
+			throw new RuntimeException("Ime profesora ne sme biti prazan string!");
+		}
 		this.ime = ime;
 	}
 
@@ -55,6 +64,12 @@ public class Profesor implements GenericEntity {
 	}
 
 	public void setPrezime(String prezime) {
+		if (prezime == null) {
+			throw new NullPointerException("Prezime profesora ne sme biti null vrednost!");
+		}
+		if (prezime.isEmpty()) {
+			throw new RuntimeException("Prezime profesora ne sme biti prazan string!");
+		}
 		this.prezime = prezime;
 	}
 
@@ -63,6 +78,12 @@ public class Profesor implements GenericEntity {
 	}
 
 	public void setTelefon(String telefon) {
+		if (telefon == null) {
+			throw new NullPointerException("Telefon profesora ne sme biti null vrednost!");
+		}
+		if (telefon.isEmpty()) {
+			throw new RuntimeException("Telefon profesora ne sme biti prazan string!");
+		}
 		this.telefon = telefon;
 	}
 
@@ -71,6 +92,15 @@ public class Profesor implements GenericEntity {
 	}
 
 	public void setEmail(String email) {
+		if (email == null) {
+			throw new NullPointerException("Email profesora ne sme biti null vrednost!");
+		}
+		if (email.isEmpty()) {
+			throw new RuntimeException("Email profesora ne sme biti prazan string!");
+		}
+		if (!email.contains("@")) {
+			throw new RuntimeException("Email mora sadrzati @");
+		}
 		this.email = email;
 	}
 

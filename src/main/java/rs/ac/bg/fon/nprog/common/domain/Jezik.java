@@ -23,6 +23,12 @@ public class Jezik implements GenericEntity {
 	}
 
 	public void setNaziv(String naziv) {
+		if (naziv == null) {
+			throw new NullPointerException("Naziv jezika ne sme biti null vrednost!");
+		}
+		if (naziv.isEmpty()) {
+			throw new RuntimeException("Naziv jezika ne sme biti prazan string!");
+		}
 		this.naziv = naziv;
 	}
 

@@ -32,7 +32,10 @@ public class Kurs implements GenericEntity{
     }
 
     public void setJezik(Jezik jezik) {
-        this.jezik = jezik;
+    	if (jezik == null) {
+			throw new NullPointerException("Jezik kursa ne sme biti null vrednost!");
+		}		
+    	this.jezik = jezik;
     }
 
     public long getIDKursa() {
@@ -48,7 +51,13 @@ public class Kurs implements GenericEntity{
     }
 
     public void setNaziv(String naziv) {
-        this.naziv = naziv;
+    	if (naziv == null) {
+			throw new NullPointerException("Naziv kursa ne sme biti null vrednost!");
+		}
+		if (naziv.isEmpty()) {
+			throw new RuntimeException("Naziv kursa ne sme biti prazan string!");
+		}
+    	this.naziv = naziv;
     }
 
     public Nivo getNivo() {
@@ -56,7 +65,10 @@ public class Kurs implements GenericEntity{
     }
 
     public void setNivo(Nivo nivo) {
-        this.nivo = nivo;
+    	if (nivo == null) {
+			throw new NullPointerException("Nivo kursa ne sme biti null vrednost!");
+		}		
+    	this.nivo = nivo;
     }
 
     public TipKursa getTipKursa() {
@@ -64,7 +76,10 @@ public class Kurs implements GenericEntity{
     }
 
     public void setTipKursa(TipKursa tipKursa) {
-        this.tipKursa = tipKursa;
+    	if (tipKursa == null) {
+			throw new NullPointerException("Tip kursa ne sme biti null vrednost!");
+		}		
+    	this.tipKursa = tipKursa;
     }
 
     public ArrayList<TerminKursa> getTermini() {
@@ -72,7 +87,13 @@ public class Kurs implements GenericEntity{
     }
 
     public void setTermini(ArrayList<TerminKursa> termini) {
-        this.termini = termini;
+    	if (termini == null) {
+			throw new NullPointerException("Lista termina kursa ne sme biti null vrednost!");
+		}
+		if (termini.isEmpty()) {
+			throw new RuntimeException("Kurs mora imati makar jedan termin!");
+		}
+    	this.termini = termini;
     }
 
     public boolean exist(TerminKursa termin) {

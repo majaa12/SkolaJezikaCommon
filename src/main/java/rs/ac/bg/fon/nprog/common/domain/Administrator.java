@@ -29,6 +29,12 @@ public class Administrator implements GenericEntity {
 	}
 
 	public void setLozinka(String lozinka) {
+		if (lozinka == null) {
+			throw new NullPointerException("Lozinka ne sme biti null vrednost!");
+		}
+		if (lozinka.isEmpty()) {
+			throw new RuntimeException("Lozinka ne sme biti prazan string!");
+		}
 		this.lozinka = lozinka;
 	}
 
@@ -45,6 +51,12 @@ public class Administrator implements GenericEntity {
 	}
 
 	public void setIme(String ime) {
+		if (ime == null) {
+			throw new NullPointerException("Ime ne sme biti null vrednost!");
+		}
+		if (ime.isEmpty()) {
+			throw new RuntimeException("Ime ne sme biti prazan string!");
+		}
 		this.ime = ime;
 	}
 
@@ -53,6 +65,12 @@ public class Administrator implements GenericEntity {
 	}
 
 	public void setPrezime(String prezime) {
+		if (prezime == null) {
+			throw new NullPointerException("Prezime ne sme biti null vrednost!");
+		}
+		if (prezime.isEmpty()) {
+			throw new RuntimeException("Prezime ne sme biti prazan string!");
+		}		
 		this.prezime = prezime;
 	}
 
@@ -61,6 +79,12 @@ public class Administrator implements GenericEntity {
 	}
 
 	public void setKorisnickoIme(String korisnickoIme) {
+		if (korisnickoIme == null) {
+			throw new NullPointerException("Korisnicko ime ne sme biti null vrednost!");
+		}
+		if (korisnickoIme.isEmpty()) {
+			throw new RuntimeException("Korisnicko ime ne sme biti prazan string!");
+		}		
 		this.korisnickoIme = korisnickoIme;
 	}
 
