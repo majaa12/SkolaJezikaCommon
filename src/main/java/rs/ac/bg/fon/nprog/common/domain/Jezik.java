@@ -5,23 +5,60 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Klasa koja predstavlja Jezik i implementira interfejs GenericEntity.
+ *
+ * Jezik ima svoj IDJezika tipa long i naziv tipa String
+ * 
+ * @author Maja
+ * @version 0.1
+ */
 public class Jezik implements GenericEntity {
 
+	/**
+	 * IDJezika kao long.
+	 */
 	private long IDJezika;
+	/**
+	 * Naziv jezika kao String.
+	 */
 	private String naziv;
 
+	/**
+	 * Besparametarski konstruktor koji inicijalizuje objekat klase Jezik i nista
+	 * vise.
+	 */
 	public Jezik() {
 	}
 
+	/**
+	 * Parametarski konstruktor koji inicijalizuje objekat klase Jezik i postavlja
+	 * pocetne vrednosti za atribute IDJezika i naziv.
+	 * 
+	 * @param IDJezika Id jezika kao long.
+	 * @param naziv    Naziv jezika kao String.
+	 */
 	public Jezik(long IDJezika, String naziv) {
 		this.IDJezika = IDJezika;
 		this.naziv = naziv;
 	}
 
+	/**
+	 * Vraca naziv jezika.
+	 * 
+	 * @return naziv jezika kao String.
+	 */
 	public String getNaziv() {
 		return naziv;
 	}
 
+	/**
+	 * Postavlja naziv jezika ako on nije null i nije prazan String.
+	 * 
+	 * @param naziv Naziv jezika kao String.
+	 * @throws java.lang.NullPointerException ako je prosledjen naziv null.
+	 * @throws java.lang.RuntimeException     ako je prosledjen naziv prazan String.
+	 */
 	public void setNaziv(String naziv) {
 		if (naziv == null) {
 			throw new NullPointerException("Naziv jezika ne sme biti null vrednost!");
@@ -32,14 +69,27 @@ public class Jezik implements GenericEntity {
 		this.naziv = naziv;
 	}
 
+	/**
+	 * Vraca id jezika.
+	 * 
+	 * @return IDJezika kao long.
+	 */
 	public long getIDJezika() {
 		return IDJezika;
 	}
 
+	/**
+	 * Postavlja id jezika.
+	 * 
+	 * @param IDJezika Id jezika kao long.
+	 */
 	public void setIDJezika(long IDJezika) {
 		this.IDJezika = IDJezika;
 	}
 
+	/**
+	 * Vraca naziv jezika kao String.
+	 */
 	@Override
 	public String toString() {
 		return naziv;
@@ -53,6 +103,16 @@ public class Jezik implements GenericEntity {
 		return hash;
 	}
 
+	/**
+	 * Poredi dva jezika i vraca true ako su ista, a false ako nisu. Jezici se
+	 * porede po id-u i nazivu i oba kriterijuma moraju da budu ista.
+	 * 
+	 * @return
+	 *         <ul>
+	 *         <li>true ako su oba objekta klase Jezik i imaju iste id-jeve i nazive
+	 *         <li>false u svim ostalim slucajevima
+	 *         </ul>
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {

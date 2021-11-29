@@ -5,26 +5,68 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Klasa koja predstavlja Grad i implementira interfejs GenericEntity.
+ *
+ * Grad ima svoj IDGrada tipa long, naziv tipa String, kao i listu adresa koje
+ * se nalaze u njemu.
+ * 
+ * @author Maja
+ * @version 0.1
+ */
 public class Grad implements GenericEntity {
 
+	/**
+	 * IDGrada tipa long.
+	 */
 	private long IDGrada;
+	/**
+	 * Naziv grada tiipa String.
+	 */
 	private String naziv;
+	/**
+	 * Lista adresa tipa ArrayList.
+	 */
 	private ArrayList<Adresa> adrese;
 
+	/**
+	 * Besparametarski konstruktor koji inicijalizuje objekat klase Grad i nista
+	 * vise.
+	 */
 	public Grad() {
 		this.adrese = new ArrayList<>();
 	}
 
+	/**
+	 * Parametarski konstruktor koji inicijalizuje objekat klase Grad i postavlja
+	 * pocetne vrednosti za atribute IDGrada, naziv, adrese.
+	 * 
+	 * @param IDGrada Id grada kao long.
+	 * @param naziv   Naziv grada kao String.
+	 * @param adrese  Lista adresa tipa ArrayList.
+	 */
 	public Grad(long IDGrada, String naziv, ArrayList<Adresa> adrese) {
 		this.IDGrada = IDGrada;
 		this.naziv = naziv;
 		this.adrese = adrese;
 	}
 
+	/**
+	 * Vraca naziv grada.
+	 * 
+	 * @return Naziv grada kao String.
+	 */
 	public String getNaziv() {
 		return naziv;
 	}
 
+	/**
+	 * Postavlja naziv grada ako on nije null i nije prazan String.
+	 * 
+	 * @param naziv Naziv grada kao String.
+	 * @throws java.lang.NullPointerException ako je prosledjen naziv null.
+	 * @throws java.lang.RuntimeException     ako je prosledjen naziv prazan String.
+	 */
 	public void setNaziv(String naziv) {
 		if (naziv == null) {
 			throw new NullPointerException("Naziv grada ne sme biti null vrednost!");
@@ -35,18 +77,42 @@ public class Grad implements GenericEntity {
 		this.naziv = naziv;
 	}
 
+	/**
+	 * Vraca id grada.
+	 * 
+	 * @return IDGrada kao long.
+	 */
 	public long getIDGrada() {
 		return IDGrada;
 	}
 
+	/**
+	 * Postavlja id grada.
+	 * 
+	 * @param IDGrada Id grada kao long.
+	 */
 	public void setIDGrada(long IDGrada) {
 		this.IDGrada = IDGrada;
 	}
 
+	/**
+	 * Vraca listu adresa tog grada.
+	 * 
+	 * @return adrese kao ArrayList.
+	 */
 	public ArrayList<Adresa> getAdrese() {
 		return adrese;
 	}
 
+	/**
+	 * Postavlja listu adresa ako ona nije null i nije prazna.
+	 * 
+	 * @param adrese Adrese grada tipa ArrayList.
+	 * @throws java.lang.NullPointerException ako je prosledjena lista adresa null.
+	 * @throws java.lang.RuntimeException     ako je prosledjena lista adresa
+	 *                                        prazna.
+	 * 
+	 */
 	public void setAdrese(ArrayList<Adresa> adrese) {
 		if (adrese == null) {
 			throw new NullPointerException("Lista adresa grada ne sme biti null vrednost!");
@@ -57,6 +123,9 @@ public class Grad implements GenericEntity {
 		this.adrese = adrese;
 	}
 
+	/**
+	 * Vraca naziv grada kao String.
+	 */
 	@Override
 	public String toString() {
 		return naziv;
@@ -71,6 +140,19 @@ public class Grad implements GenericEntity {
 		return hash;
 	}
 
+	/**
+	 * Poredi dva grada i vraca true ako su isti, a false ako nisu. Gradovi se
+	 * porede po id-u, nazivu i listi adresa i sva 3 kriterijuma moraju da budu
+	 * ista.
+	 * 
+	 * @return
+	 *         <ul>
+	 *         <li>true ako su oba objekta klase Grad i imaju iste id-jeve, nazive i
+	 *         liste adresa
+	 *         <li>false u svim ostalim slucajevima
+	 *         </ul>
+	 *
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {

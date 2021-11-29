@@ -106,7 +106,7 @@ public class Administrator implements GenericEntity {
 	}
 
 	/**
-	 * Postavlja lozinku administratora.
+	 * Postavlja id administratora.
 	 * 
 	 * @param IDAdministratora Id administratora kao long.
 	 */
