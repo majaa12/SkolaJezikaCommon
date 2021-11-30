@@ -8,16 +8,53 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Klasa koja predstavlja Upis polaznika na odredjeni termin kursa stranog
+ * jezika i implementira interfejs GenericEntity.
+ *
+ * Upis ima svoj datumUpisa tipa Date, polaznika tipa Polaznik, administratora
+ * koji belezi upis tipa Administrator i termin kursa tipa TerminKursa.
+ * 
+ * @author Maja
+ * @version 0.1
+ */
 public class Upis implements GenericEntity {
 
+	/**
+	 * Datum upisa tipa Date.
+	 */
 	private Date datumUpis;
+	/**
+	 * Polaznik kao objekat klase Polaznik.
+	 */
 	private Polaznik polaznik;
+	/**
+	 * Administrator kao objekat klase Administrator.
+	 */
 	private Administrator administrator;
+	/**
+	 * Termin kursa kao objekat klase TerminKursa.
+	 */
 	private TerminKursa terminKursa;
 
+	/**
+	 * Besparametarski konstruktor koji inicijalizuje objekat klase Upis i nista
+	 * vise.
+	 */
 	public Upis() {
 	}
 
+	/**
+	 * Parametarski konstruktor koji inicijalizuje objekat klase Upis i postavlja
+	 * pocetne vrednosti za atribute datumUpis, polaznik, administrator,
+	 * terminKursa.
+	 * 
+	 * @param datumUpis     Datum upisa kao Date.
+	 * @param polaznik      Polaznik koji se upisuje kao objekat klase Polaznik.
+	 * @param administrator Administrator koji vrsi upis kao objekat klase
+	 *                      Administrator.
+	 * @param terminKursa   Termin kursa kao objekat klase TerminKursa.
+	 */
 	public Upis(Date datumUpis, Polaznik polaznik, Administrator administrator, TerminKursa terminKursa) {
 		this.datumUpis = datumUpis;
 		this.polaznik = polaznik;
@@ -25,10 +62,21 @@ public class Upis implements GenericEntity {
 		this.terminKursa = terminKursa;
 	}
 
+	/**
+	 * Vraca termin kursa za koji se vrsi upis.
+	 * 
+	 * @return terminKursa kao objekat klase TerminKursa.
+	 */
 	public TerminKursa getTerminKursa() {
 		return terminKursa;
 	}
 
+	/**
+	 * Postavlja termin kursa ako on nije null.
+	 * 
+	 * @param terminKursa Termin kursa kao objekat klase TerminKursa.
+	 * @throws java.lang.NullPointerException ako je prosledjen termin null.
+	 */
 	public void setTerminKursa(TerminKursa terminKursa) {
 		if (terminKursa == null) {
 			throw new NullPointerException("Termin kursa ne sme biti null vrednost!");
@@ -36,10 +84,21 @@ public class Upis implements GenericEntity {
 		this.terminKursa = terminKursa;
 	}
 
+	/**
+	 * Vraca datum upisa.
+	 * 
+	 * @return datumUpisa kao Date.
+	 */
 	public Date getDatumUpis() {
 		return datumUpis;
 	}
 
+	/**
+	 * Postavlja datum upisa ako on nije null.
+	 * 
+	 * @param datumUpis Datum upisa kao Date.
+	 * @throws java.lang.NullPointerException ako je prosledjen datum upisa null.
+	 */
 	public void setDatumUpis(Date datumUpis) {
 		if (datumUpis == null) {
 			throw new NullPointerException("Datum upisa ne sme biti null vrednost!");
@@ -47,10 +106,21 @@ public class Upis implements GenericEntity {
 		this.datumUpis = datumUpis;
 	}
 
+	/**
+	 * Vraca polaznika koji se upisuje na kurs.
+	 * 
+	 * @return polaznik kao objekat klase Polaznik.
+	 */
 	public Polaznik getPolaznik() {
 		return polaznik;
 	}
 
+	/**
+	 * Postavlja polaznika koji se upisuje ako on nije null.
+	 * 
+	 * @param polaznik Polaznik koji se upisuje kao objekata klase Polaznik.
+	 * @throws java.lang.NullPointerException ako je prosledjen polaznik null.
+	 */
 	public void setPolaznik(Polaznik polaznik) {
 		if (polaznik == null) {
 			throw new NullPointerException("Polaznik ne sme biti null vrednost!");
@@ -58,10 +128,21 @@ public class Upis implements GenericEntity {
 		this.polaznik = polaznik;
 	}
 
+	/**
+	 * Vraca administratora koji je izvrsio upis.
+	 * 
+	 * @return administrator koji je izvrsio upis kao objekat klase Administrator.
+	 */
 	public Administrator getAdministrator() {
 		return administrator;
 	}
 
+	/**
+	 * Postavlja administratora upisa ako on nije null.
+	 * 
+	 * @param administrator Administrator kao objekat klase Administrator.
+	 * @throws java.lang.NullPointerException ako je prosledjen administrator null.
+	 */
 	public void setAdministrator(Administrator administrator) {
 		if (administrator == null) {
 			throw new NullPointerException("Administrator ne sme biti null vrednost!");
@@ -69,6 +150,9 @@ public class Upis implements GenericEntity {
 		this.administrator = administrator;
 	}
 
+	/**
+	 * Vraca datum upisa, polaznika i termin kursa kao jedan String.
+	 */
 	@Override
 	public String toString() {
 		return datumUpis + " " + polaznik + " " + terminKursa;
@@ -84,6 +168,19 @@ public class Upis implements GenericEntity {
 		return hash;
 	}
 
+	/**
+	 * Poredi dva upisa i vraca true ako su isti, a false ako nisu. Upisi se porede
+	 * po datumu upisa, polazniku, administratoru i terminu kursa i svi kriterijumi
+	 * moraju da budu isti.
+	 * 
+	 * @return
+	 *         <ul>
+	 *         <li>true ako su oba objekta klase Upis i imaju iste datume upisa,
+	 *         polaznike, administratore i termine kursa
+	 *         <li>false u svim ostalim slucajevima
+	 *         </ul>
+	 *
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {

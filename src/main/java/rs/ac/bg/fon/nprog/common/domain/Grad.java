@@ -30,8 +30,8 @@ public class Grad implements GenericEntity {
 	private ArrayList<Adresa> adrese;
 
 	/**
-	 * Besparametarski konstruktor koji inicijalizuje objekat klase Grad i nista
-	 * vise.
+	 * Besparametarski konstruktor koji inicijalizuje objekat klase Grad i
+	 * inicijalizuje listu adresa tog grada.
 	 */
 	public Grad() {
 		this.adrese = new ArrayList<>();

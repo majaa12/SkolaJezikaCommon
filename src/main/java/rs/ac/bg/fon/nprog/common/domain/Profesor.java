@@ -5,18 +5,62 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Klasa koja predstavlja Profesora koji je angazovan na kursu odredjenog jezika
+ * i implementira interfejs GenericEntity.
+ *
+ * Profesor ima svoj IDProfesora tipa long, kao i ime, prezime, telefon, email
+ * koji su tipa String i jezik tipa Jezik.
+ * 
+ * @author Maja
+ * @version 0.1
+ */
 public class Profesor implements GenericEntity {
 
+	/**
+	 * IDProfesora kao long.
+	 */
 	private long IDProfesora;
+	/**
+	 * Ime profesora kao String.
+	 */
 	private String ime;
+	/**
+	 * Prezime profesora kao String.
+	 */
 	private String prezime;
+	/**
+	 * Telefon profesora kao String.
+	 */
 	private String telefon;
+	/**
+	 * Email profesora kao String.
+	 */
 	private String email;
+	/**
+	 * Jezik profesora kao objekat klase Jezik.
+	 */
 	private Jezik jezik;
 
+	/**
+	 * Besparametarski konstruktor koji inicijalizuje objekat klase Profesor i nista
+	 * vise.
+	 */
 	public Profesor() {
 	}
 
+	/**
+	 * Parametarski konstruktor koji inicijalizuje objekat klase Profesor i
+	 * postavlja pocetne vrednosti za atribute IDProfesora, ime, prezime, telefon,
+	 * email i jezik.
+	 * 
+	 * @param IDProfesora Id profesora kao long.
+	 * @param ime         Ime profesora kao String.
+	 * @param prezime     Prezime profesora kao String.
+	 * @param telefon     Telefon profesora kao String.
+	 * @param email       Email profesora kao String.
+	 * @param jezik       Jezik profesora kao objekat klase Jezik
+	 */
 	public Profesor(long IDProfesora, String ime, String prezime, String telefon, String email, Jezik jezik) {
 		this.IDProfesora = IDProfesora;
 		this.ime = ime;
@@ -26,29 +70,62 @@ public class Profesor implements GenericEntity {
 		this.jezik = jezik;
 	}
 
+	/**
+	 * Vraca jezik koji profesor poducava.
+	 * 
+	 * @return jezik profesora kao Jezik.
+	 */
 	public Jezik getJezik() {
 		return jezik;
 	}
 
+	/**
+	 * Postavlja jezik profesora ako on nije null.
+	 * 
+	 * @param jezik Jezik profesora kao objekat klase Jezik.
+	 * @throws java.lang.NullPointerException ako je prosledjen jezik null.
+	 */
 	public void setJezik(Jezik jezik) {
 		if (jezik == null) {
 			throw new NullPointerException("Jezik profesora ne sme biti null vrednost!");
-		}		
+		}
 		this.jezik = jezik;
 	}
 
+	/**
+	 * Vraca id profesora.
+	 * 
+	 * @return IDProfesora kao long.
+	 */
 	public long getIDProfesora() {
 		return IDProfesora;
 	}
 
+	/**
+	 * Postavlja id profesora.
+	 * 
+	 * @param IDProfesora Id profesora kao long.
+	 */
 	public void setIDProfesora(long IDProfesora) {
 		this.IDProfesora = IDProfesora;
 	}
 
+	/**
+	 * Vraca ime profesora.
+	 * 
+	 * @return ime profesora kao String.
+	 */
 	public String getIme() {
 		return ime;
 	}
 
+	/**
+	 * Postavlja ime profesora ako ono nije null i nije prazan String.
+	 * 
+	 * @param ime Ime profesora kao String.
+	 * @throws java.lang.NullPointerException ako je prosledjeno ime null.
+	 * @throws java.lang.RuntimeException     ako je prosledjeno ime prazan String.
+	 */
 	public void setIme(String ime) {
 		if (ime == null) {
 			throw new NullPointerException("Ime profesora ne sme biti null vrednost!");
@@ -59,10 +136,23 @@ public class Profesor implements GenericEntity {
 		this.ime = ime;
 	}
 
+	/**
+	 * Vraca prezime profesora.
+	 * 
+	 * @return prezime profesora kao String.
+	 */
 	public String getPrezime() {
 		return prezime;
 	}
 
+	/**
+	 * Postavlja prezime profesora ako ono nije null i nije prazan String.
+	 * 
+	 * @param prezime Prezime profesora kao String.
+	 * @throws java.lang.NullPointerException ako je prosledjeno prezime null.
+	 * @throws java.lang.RuntimeException     ako je prosledjeno prezime prazan
+	 *                                        String.
+	 */
 	public void setPrezime(String prezime) {
 		if (prezime == null) {
 			throw new NullPointerException("Prezime profesora ne sme biti null vrednost!");
@@ -73,10 +163,23 @@ public class Profesor implements GenericEntity {
 		this.prezime = prezime;
 	}
 
+	/**
+	 * Vraca telefon profesora.
+	 * 
+	 * @return telefon profesora kao String.
+	 */
 	public String getTelefon() {
 		return telefon;
 	}
 
+	/**
+	 * Postavlja telefon profesora ako on nije null i nije prazan String.
+	 * 
+	 * @param telefon Telefon profesora kao String.
+	 * @throws java.lang.NullPointerException ako je prosledjen telefon null.
+	 * @throws java.lang.RuntimeException     ako je prosledjen telefon prazan
+	 *                                        String.
+	 */
 	public void setTelefon(String telefon) {
 		if (telefon == null) {
 			throw new NullPointerException("Telefon profesora ne sme biti null vrednost!");
@@ -87,10 +190,24 @@ public class Profesor implements GenericEntity {
 		this.telefon = telefon;
 	}
 
+	/**
+	 * Vraca email profesora.
+	 * 
+	 * @return email profesora kao String.
+	 */
 	public String getEmail() {
 		return email;
 	}
 
+	/**
+	 * Postavlja email profesora ako on nije null, nije prazan String i sadrzi
+	 * {@literal @}
+	 * 
+	 * @param email Email profesora kao String.
+	 * @throws java.lang.NullPointerException ako je prosledjen email null.
+	 * @throws java.lang.RuntimeException     ako je prosledjen email prazan String.
+	 * @throws java.lang.RuntimeException     ako prosledjen ne sadrzi {@literal @}.
+	 */
 	public void setEmail(String email) {
 		if (email == null) {
 			throw new NullPointerException("Email profesora ne sme biti null vrednost!");
@@ -104,6 +221,9 @@ public class Profesor implements GenericEntity {
 		this.email = email;
 	}
 
+	/**
+	 * Vraca ime, prezime profesora i jezik koji poducava kao jedan String.
+	 */
 	@Override
 	public String toString() {
 		return ime + " " + prezime + " - " + jezik.getNaziv();
@@ -121,6 +241,18 @@ public class Profesor implements GenericEntity {
 		return hash;
 	}
 
+	/**
+	 * Poredi dva profesora i vraca true ako su ista, a false ako nisu. Profesori se
+	 * porede po id-u, imenu, prezimenu, telefonu, email-u i jeziku i svi kriterijumi
+	 * moraju da budu ista.
+	 * 
+	 * @return
+	 *         <ul>
+	 *         <li>true ako su oba objekta klase Profesor i imaju iste id-jeve, imena,
+	 *         prezimena, telefone, email-ove i jezike.
+	 *         <li>false u svim ostalim slucajevima
+	 *         </ul>
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {
