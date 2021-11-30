@@ -355,6 +355,10 @@ public class Polaznik implements GenericEntity {
 
 	@Override
 	public GenericEntity fillFromRS(ResultSet rs) throws Exception {
+		if (rs == null) {
+			throw new Exception("rs ne moze biti null!");
+		}
+		
 		if (rs.next()) {
 			IDPolaznika = rs.getLong("IDPolaznika");
 			ime = rs.getString("Ime");
@@ -378,7 +382,7 @@ public class Polaznik implements GenericEntity {
 	public String getConditionForMore() {
 		String rez;
 
-		if (ime.equals("") && prezime.equals("")) {
+		if ((ime == null || ime.equals("")) && (prezime == null || prezime.equals(""))) {
 			return "";
 		} else {
 			rez = " where";
@@ -399,6 +403,9 @@ public class Polaznik implements GenericEntity {
 
 	@Override
 	public List<GenericEntity> fillListFromRS(ResultSet rs) throws Exception {
+		if (rs == null) {
+			throw new Exception("rs ne moze biti null!");
+		}
 		List<GenericEntity> list = new ArrayList<>();
 		while (rs.next()) {
 			long idP = rs.getLong("IDPolaznika");
