@@ -141,20 +141,17 @@ public class Jezik implements GenericEntity {
 
 	@Override
 	public String getColumnNamesForInsert() {
-		throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
-																		// Tools | Templates.
+		return "Naziv";
 	}
 
 	@Override
 	public String getInsertValues() {
-		throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
-																		// Tools | Templates.
+		return "'" + naziv + "'";
 	}
 
 	@Override
 	public void setId(Long id) {
-		throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
-																		// Tools | Templates.
+		IDJezika = id;
 	}
 
 	@Override
@@ -164,18 +161,30 @@ public class Jezik implements GenericEntity {
 
 	@Override
 	public String setUpdateValues() {
-		throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
-																		// Tools | Templates.
+		return "Naziv = '" + naziv + "'";
 	}
 
 	@Override
 	public GenericEntity fillFromRS(ResultSet rs) throws Exception {
-		throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
-																		// Tools | Templates.
+		if (rs == null) {
+			throw new Exception("rs ne moze biti null!");
+		}
+
+		if (rs.next()) {
+			IDJezika = rs.getLong("IDJezika");
+			naziv = rs.getString("Naziv");
+
+			return this;
+		}
+		throw new Exception("Jezik ne postoji u bazi!");
 	}
 
 	@Override
 	public List<GenericEntity> fillListFromRS(ResultSet rs) throws Exception {
+		if (rs == null) {
+			throw new Exception("rs ne moze biti null!");
+		}
+		
 		List<GenericEntity> list = new ArrayList<>();
 		while (rs.next()) {
 			long idJ = rs.getLong("IDJezika");
