@@ -319,6 +319,10 @@ public class Profesor implements GenericEntity {
 
 	@Override
 	public GenericEntity fillFromRS(ResultSet rs) throws Exception {
+		if (rs == null) {
+			throw new Exception("rs ne moze biti null!");
+		}
+		
 		if (rs.next()) {
 			IDProfesora = rs.getLong("IDProfesora");
 			ime = rs.getString("Ime");
