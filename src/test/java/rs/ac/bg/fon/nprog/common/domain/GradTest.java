@@ -86,7 +86,8 @@ public class GradTest extends GenericEntityTest{
 	
 	@Test
 	public void setId_successful() {
-		assertEquals(2l, grad.getIDGrada());
+		grad.setId(3l);
+		assertEquals(3l, grad.getIDGrada());
 	}
 	
 	@Test

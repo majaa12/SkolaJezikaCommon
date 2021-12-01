@@ -81,7 +81,8 @@ public class JezikTest extends GenericEntityTest{
 	
 	@Test
 	public void setId_successful() {
-		assertEquals(2l, jezik.getIDJezika());
+		jezik.setId(3l);
+		assertEquals(3l, jezik.getIDJezika());
 	}
 	
 	@Test

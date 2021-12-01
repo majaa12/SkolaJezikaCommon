@@ -337,6 +337,10 @@ public class Kurs implements GenericEntity {
 
 	@Override
 	public GenericEntity fillFromRS(ResultSet rs) throws Exception {
+		if (rs == null) {
+			throw new Exception("rs ne moze biti null!");
+		}
+		
 		if (rs.next()) {
 			IDKursa = rs.getLong("k.IDKursa");
 			naziv = rs.getString("k.Naziv");
@@ -354,6 +358,10 @@ public class Kurs implements GenericEntity {
 
 	@Override
 	public List<GenericEntity> fillListFromRS(ResultSet rs) throws Exception {
+		if (rs == null) {
+			throw new Exception("rs ne moze biti null!");
+		}
+		
 		List<GenericEntity> list = new ArrayList<>();
 		while (rs.next()) {
 			long idK = rs.getLong("k.IDKursa");

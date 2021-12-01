@@ -88,7 +88,8 @@ public class AdresaTest extends GenericEntityTest{
 	
 	@Test
 	public void setId_successful() {
-		assertEquals(2l, adresa.getIDAdrese());
+		adresa.setId(3l);
+		assertEquals(3l, adresa.getIDAdrese());
 	}
 	
 	@Test

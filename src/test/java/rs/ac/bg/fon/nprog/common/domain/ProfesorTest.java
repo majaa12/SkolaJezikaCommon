@@ -91,7 +91,8 @@ public class ProfesorTest extends GenericEntityTest{
 	
 	@Test
 	public void setId_successful() {
-		assertEquals(5l, profesor.getIDProfesora());
+		profesor.setId(1l);
+		assertEquals(1l, profesor.getIDProfesora());
 	}
 	
 	@Test
