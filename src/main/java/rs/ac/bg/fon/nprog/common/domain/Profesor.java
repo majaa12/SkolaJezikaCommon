@@ -340,6 +340,10 @@ public class Profesor implements GenericEntity {
 
 	@Override
 	public List<GenericEntity> fillListFromRS(ResultSet rs) throws Exception {
+		if (rs == null) {
+			throw new Exception("rs ne moze biti null!");
+		}
+		
 		List<GenericEntity> list = new ArrayList<>();
 		while (rs.next()) {
 			long idP = rs.getLong("p.IDProfesora");

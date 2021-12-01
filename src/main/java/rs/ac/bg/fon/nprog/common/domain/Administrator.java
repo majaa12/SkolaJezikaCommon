@@ -257,7 +257,7 @@ public class Administrator implements GenericEntity {
 
 	@Override
 	public String getInsertValues() {
-		return ime + ", " + prezime + ", " + korisnickoIme + ", " + lozinka;
+		return "'" + ime + "', '" + prezime + "', '" + korisnickoIme + "', '" + lozinka + "'";
 	}
 
 	@Override
@@ -278,7 +278,11 @@ public class Administrator implements GenericEntity {
 
 	@Override
 	public GenericEntity fillFromRS(ResultSet rs) throws Exception {
-		while (rs.next()) {
+		if (rs == null) {
+			throw new Exception("rs ne moze biti null!");
+		}
+		
+		if (rs.next()) {
 			IDAdministratora = rs.getLong("IDAdministratora");
 			ime = rs.getString("Ime");
 			prezime = rs.getString("Prezime");
@@ -291,6 +295,10 @@ public class Administrator implements GenericEntity {
 
 	@Override
 	public List<GenericEntity> fillListFromRS(ResultSet rs) throws Exception {
+		if (rs == null) {
+			throw new Exception("rs ne moze biti null!");
+		}
+		
 		List<GenericEntity> list = new ArrayList<>();
 		while (rs.next()) {
 			long idA = rs.getLong("IDAdministratora");
