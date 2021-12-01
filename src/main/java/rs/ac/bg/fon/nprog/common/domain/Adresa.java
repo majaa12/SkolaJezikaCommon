@@ -209,42 +209,54 @@ public class Adresa implements GenericEntity {
 
 	@Override
 	public String getColumnNamesForInsert() {
-		throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
-																		// Tools | Templates.
+		return "Ulica, Broj, IDGrada";
 	}
 
 	@Override
 	public String getInsertValues() {
-		throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
-																		// Tools | Templates.
+		return "'" + ulica + "', " + broj + ", " + grad.getIDGrada();
 	}
 
 	@Override
 	public void setId(Long id) {
-		throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
-																		// Tools | Templates.
+		IDAdrese = id;
 	}
 
 	@Override
 	public String getConditionForOne() {
-		throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
-																		// Tools | Templates.
+		return "a.IDAdrese = " + IDAdrese;
 	}
 
 	@Override
 	public String setUpdateValues() {
-		throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
-																		// Tools | Templates.
+		return "Ulica = '" + ulica + "', Broj = " + broj + ", IDGrada = " + grad.getIDGrada();
 	}
 
 	@Override
 	public GenericEntity fillFromRS(ResultSet rs) throws Exception {
-		throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
-																		// Tools | Templates.
+		if (rs == null) {
+			throw new Exception("rs ne moze biti null!");
+		}
+		
+		if (rs.next()) {
+			IDAdrese = rs.getLong("a.IDAdrese");
+			ulica = rs.getString("a.Ulica");
+			broj = rs.getInt("a.Broj");
+			long id = rs.getLong("g.IDGrada");
+			String naziv = rs.getString("g.Naziv");
+			grad = new Grad(id, naziv, null);
+
+			return this;
+		}
+		throw new Exception("Adresa ne postoji u bazi!");																
 	}
 
 	@Override
 	public List<GenericEntity> fillListFromRS(ResultSet rs) throws Exception {
+		if (rs == null) {
+			throw new Exception("rs ne moze biti null!");
+		}
+		
 		List<GenericEntity> list = new ArrayList<>();
 		while (rs.next()) {
 			long idA = rs.getLong("a.IDAdrese");
