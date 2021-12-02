@@ -239,8 +239,9 @@ public class Upis implements GenericEntity {
 
 	@Override
 	public String setUpdateValues() {
-		throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
-																		// Tools | Templates.
+		return "DatumUpisa = '" + new java.sql.Date(datumUpis.getTime()) + "', IDAdministratora = "
+				+ administrator.getIDAdministratora() + ", IDTermina = " + terminKursa.getIDTermina()
+				+ ", IDPolaznika = " + polaznik.getIDPolaznika() + ", IDKursa = " + terminKursa.getKurs().getIDKursa();
 	}
 
 	@Override
