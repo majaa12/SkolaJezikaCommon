@@ -237,7 +237,7 @@ public class Adresa implements GenericEntity {
 		if (rs == null) {
 			throw new Exception("rs ne moze biti null!");
 		}
-		
+
 		if (rs.next()) {
 			IDAdrese = rs.getLong("a.IDAdrese");
 			ulica = rs.getString("a.Ulica");
@@ -248,7 +248,7 @@ public class Adresa implements GenericEntity {
 
 			return this;
 		}
-		throw new Exception("Adresa ne postoji u bazi!");																
+		throw new Exception("Adresa ne postoji u bazi!");
 	}
 
 	@Override
@@ -256,7 +256,7 @@ public class Adresa implements GenericEntity {
 		if (rs == null) {
 			throw new Exception("rs ne moze biti null!");
 		}
-		
+
 		List<GenericEntity> list = new ArrayList<>();
 		while (rs.next()) {
 			long idA = rs.getLong("a.IDAdrese");
